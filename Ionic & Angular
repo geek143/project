@@ -1,0 +1,308 @@
+//////////////////////////////////////////////////////
+
+Ionic Command
+
+Documentation:- https://ionicframework.com/docs/api/content
+
+1) ionic g page login
+
+Remove Margin:- ion-no-margin
+No-Padding:- no-padding
+
+<ion-grid>
+ <ion-row>
+    <ion-col size-md="6">
+	</ion-col>
+ <ion-row>
+<ion-grid>
+
+
+
+Move Animations:-
+
+.move-1 
+{
+   -webkit-animation: move1 5s infinite;
+   animation: move1 5s infinite; 
+}
+
+@-webkit-keyframes move1 {
+  0% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px); }
+  50% {
+    -webkit-transform: rotate(1deg) translate(2px, 2px);
+    transform: rotate(1deg) translate(2px, 2px); }
+  100% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px); } 
+}
+
+@keyframes move1 {
+  0% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px); }
+  50% {
+    -webkit-transform: rotate(1deg) translate(2px, 2px);
+    transform: rotate(1deg) translate(2px, 2px); }
+  100% {
+    -webkit-transform: rotate(-1deg) translate(-2px, -2px);
+    transform: rotate(-1deg) translate(-2px, -2px); } 
+}
+
+
+///////////////////////////////////////////////////
+
+/* For Notch Phone */
+Ionic
+
+ion-app 
+{
+	margin-top: env(safe-area-inset-top);
+}
+
+
+PhoneGap
+
+body {
+	padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+	padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+}
+
+
+For Angular =>
+
+<div class="col-md-12">
+  <div class="form-group">
+      <!-- <label>Choose One</label> -->
+      <mat-radio-group>
+          <mat-radio-button name="choose" [checked]="isChecked" (click)="type = '1'" value="1">
+              Text
+          </mat-radio-button>
+          <mat-radio-button name="choose" [checked]="!isChecked" (click)="type = '2'" value="0">
+              Multiple
+          </mat-radio-button>
+      </mat-radio-group>
+  </div>
+  <div class="form-group" *ngIf="type == '1'">
+      <div class="input-group">
+          <label class="frm_label">Answer</label>
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter Answer" name="">
+          </div>
+      </div>
+  </div>
+
+  <div class="form-group" *ngIf="type == '2'">
+      <label class="frm_label">Answer</label>
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Answer" name="">
+          <a href="javascript: void(0)"><i class="fas fa-plus-square"></i></a>
+      </div>
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Answer" name="">
+          <a href="javascript: void(0)"><i class="fas fa-minus-circle"></i></a>
+      </div>
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Answer" name="">
+          <a href="javascript: void(0)"><i class="fas fa-minus-circle"></i></a>
+      </div>
+  </div>
+
+</div>
+
+//// HIDE SHOW RADIO ///
+<div chooseBtn>
+	<div>
+		<input type="radio" id="emailc" name="choose" [checked]="isChecked" (click)="type = '1'" value="1">
+		<label for="emailc">Email</label>
+	</div>
+	<div ml15>
+		<input type="radio" id="pnumber" name="choose" [checked]="!isChecked" value="0" (click)="type = '2'">
+		<label for="pnumber">Phone Number</label>
+	</div>
+</div>
+
+<div btn-bottom>
+	<ion-button expand="full" *ngIf="type == '1'" color="primary" shape="round" routerLink="/email">Continue with email</ion-button>
+	<ion-button expand="full" *ngIf="type == '2'" shape="round" fill="outline" routerLink="/phonenumber">Use phone number
+	</ion-button>
+</div>
+
+Ts = 
+type: any = '1';
+isChecked: boolean = true;
+ 
+ 
+///////////***********//////////
+
+Creating a Masonry grid or Pinterest layout in Ionic Framework
+
+<div class="pins">
+  <ion-card class="pin" *ngFor="let imageURL of imageUrlArray">
+      <img [src]="imageURL" >
+  </ion-card>
+</div>
+
+.pins {
+  column-count: 3;
+  padding: 7px;
+}
+
+.pin {
+  display: inline-block;
+  margin: 0 2px 10px;
+  padding: 5px;
+  background: #f8f8ff;
+}
+
+////// OnScroll Ionic Angular /////////////
+
+
+npm install ng2-charts@2.2.3 chart.js@2.9.3 --save
+
+showToolbar = false;
+
+onScroll($event) 
+{
+	if ($event && $event.detail && $event.detail.scrollTop) {
+	  const scrollTop = $event.detail.scrollTop;
+	  this.showToolbar = scrollTop >= 100;
+	}
+}
+
+<ion-header [class.show-background]="showToolbar"></ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)"></ion-content>
+
+////////////////////////////////////////  
+
+If Don'T Want to show the value
+
+errors = ['', null, undefined];
+<span *ngIf='errors.indexOf(profileForm?.value?.dob) == -1'>
+       {{profileForm?.value?.dob}}
+     </span>
+<span *ngIf='errors.indexOf(profileForm?.value?.dob) >= 0'>Choose birthday date</span>
+	
+	
+set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+
+Android =>
+
+1024 * 1024
+2732 * 2732
+
+ng build --prod --base-href "http://dev.indiit.solutions/rightnow/admin/" --aot=false --build-optimizer=false
+
+.modal {
+ overflow-y: auto;
+}
+
+.modal-open {
+ overflow: auto;
+ padding-right: 0px !important
+}
+
+
+
+/****** Git *******/
+Git Pull Commands:-
+
+1. git init 
+2. git remote add origin https://github.com/devexpert9/fieldlogyx_admin.git
+3. git pull origin master
+
+(enter the credentials )
+
+
+Update on git:
+
+1. git add .
+2. git commit -m "Created and changes"
+3. git push origin master
+
+/***** For Custom Wordpres CUSTOM POST TYPE ******/
+add_shortcode('Shanghai_Trave_Blogs', 'sb_Shanghai_Trave_Blogs');
+
+function sb_Shanghai_Trave_Blogs(){
+$blog_posts = new WP_Query( array( 'post_type' => 'post', 'post_status’' => 'publish', 'posts_per_page' => -1 ) );
+?>
+	<div class = "row">
+		<div class ="col-lg-8">
+			<?php if ( $blog_posts->have_posts() ) : ?>
+			<div class = "row clearfix blosg">
+				<?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>
+					 <div class="news-block-two col-lg-6 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms" id = "post-<?php the_ID(); ?>">
+						<div class="inner-box">
+							<div class="image-box">
+								<figure class="image">
+									<a href="<?php the_permalink(); ?>">
+										<?php if ( has_post_thumbnail() ) { 
+										the_post_thumbnail( get_the_ID(), 'full' );
+										} ?>
+									</a>
+								</figure>
+								<a href="<?php the_permalink(); ?>" class="link-layer"><span class="icon la la-link"></span></a>
+							</div>
+							<div class="lower-content">
+								<div class="content">
+									<h5>
+										<a href="<?php the_permalink(); ?>">
+											<?php $title = get_the_title(); echo mb_strimwidth($title, 0, 150, '...');?> 
+										</a>
+									</h5>
+									<p>
+										BY <?php echo get_the_author(); ?> | <?php echo get_the_date(' F j, Y');?>
+									</p>
+
+									<!-- 
+										<div class="descr"> 
+											<?php $content = get_the_content(); echo mb_strimwidth($content, 0, 90, '...');?> 
+										</div>  
+									-->	
+
+								  <!--   <div class="post-date">
+								    	<span class="day"><?php echo get_the_date('d');?></span>
+								    	<span class="month"><?php echo get_the_date('M');?> </span>
+								    </div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endwhile; ?>
+
+			</div> 
+			<?php else: ?>
+			<p class = "no-blog-posts">
+				<?php esc_html_e('Sorry, no posts matched your criteria.', 'theme-domain'); ?> 
+			</p>
+			<?php endif; 
+			wp_reset_postdata(); ?>
+		</div>
+	</div>
+
+<?php 
+   
+    
+}
+
+ 
+Wp Config => Error
+
+define( 'WP_DEBUG', false );
+ini_set('display_errors','Off');
+ini_set('error_reporting', E_ALL );
+
+/* Modal */
+$(document).on('hidden.bs.modal', '.modal', function () {
+    if ($('body').find('.modal.show').length > 0) {
+        $('body').addClass('modal-open');
+    }
+});
+
